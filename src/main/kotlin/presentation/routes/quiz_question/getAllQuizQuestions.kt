@@ -4,7 +4,6 @@ import com.example.domain.repository.QuizQuestionRepository
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.routing.*
 import io.ktor.server.response.*
-import org.koin.ktor.ext.inject
 
 fun Route.getAllQuizQuestions(quizQuestionRepository: QuizQuestionRepository) {
 

@@ -28,6 +28,7 @@ dependencies {
     implementation(libs.logback.classic)
     implementation(ktorLibs.server.callLogging)
     implementation(libs.mongodb.driver)
+    implementation("org.mongodb:bson-kotlinx:5.2.0")
 
     testImplementation(kotlin("test"))
     testImplementation(ktorLibs.server.testHost)

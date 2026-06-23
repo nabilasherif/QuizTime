@@ -1,5 +1,6 @@
 package com.example.presentation.config
 
+import com.example.data.database.DatabaseFactory
 import com.example.data.repository.QuizQuestionRepositoryImpl
 import com.example.domain.model.QuizQuestion
 import com.example.domain.repository.QuizQuestionRepository
@@ -9,7 +10,8 @@ import com.example.presentation.routes.root
 import com.example.presentation.routes.quiz_question.*
 
 fun Application.configureRouting() {
-    val quizQuestionRepository: QuizQuestionRepository = QuizQuestionRepositoryImpl()
+    val mongoDatabase= DatabaseFactory.create()
+    val quizQuestionRepository: QuizQuestionRepository = QuizQuestionRepositoryImpl(mongoDatabase)
     routing {
         root()
 
