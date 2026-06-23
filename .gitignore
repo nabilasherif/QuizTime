@@ -1,0 +1,21 @@
+﻿# Gradle files
+.gradle/
+build/
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Local configuration & Secrets
+*.properties
+!.gradle.properties
+local.properties
+.env
+*.env
+
+# Operating System files
+.DS_Store
+Thumbs.db
