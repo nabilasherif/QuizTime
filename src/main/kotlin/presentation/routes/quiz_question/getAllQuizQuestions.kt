@@ -2,21 +2,22 @@ package com.example.presentation.routes.quiz_question
 
 import com.example.domain.repository.QuizQuestionRepository
 import io.ktor.http.HttpStatusCode
-import io.ktor.server.routing.*
+import io.ktor.server.routing.Route
 import io.ktor.server.response.*
+import io.ktor.server.resources.*
 
 fun Route.getAllQuizQuestions(quizQuestionRepository: QuizQuestionRepository) {
-
-    get(path = "/quiz/questions") {
-        val topicCode = call.queryParameters["topicCode"]?.toIntOrNull()
-        val limit = call.queryParameters["limit"]?.toIntOrNull()
-
-        val filteredQuestions = quizQuestionRepository.getAllQuestions(topicCode, limit)
-
-        if (filteredQuestions.isEmpty()) {
-            call.respond(HttpStatusCode.NotFound, "No questions found")
-        } else {
-            call.respond(HttpStatusCode.OK, filteredQuestions)
+    get<QuestionRoutesPath> { path ->
+        runCatching {
+            quizQuestionRepository.getAllQuestions(path.topicCode, path.limit)
+        }.onSuccess { questions ->
+            if (questions.isEmpty()) {
+                call.respond(HttpStatusCode.NotFound, "No questions found")
+            } else {
+                call.respond(HttpStatusCode.OK, questions)
+            }
+        }.onFailure {
+            call.respond(HttpStatusCode.InternalServerError, "Failed to retrieve questions")
         }
     }
 }

@@ -10,6 +10,7 @@ import com.example.presentation.routes.root
 import com.example.presentation.routes.quiz_question.*
 
 fun Application.configureRouting() {
+
     val mongoDatabase= DatabaseFactory.create()
     val quizQuestionRepository: QuizQuestionRepository = QuizQuestionRepositoryImpl(mongoDatabase)
     routing {
