@@ -1,8 +1,9 @@
 package com.example.domain.model
 
-import javax.lang.model.element.NestingKind
+import kotlinx.serialization.Serializable
 
-data class IssueReports(
+@Serializable
+data class IssueReport(
     val id: String?=null,
     val questionId: String,
     val issueType: String,
