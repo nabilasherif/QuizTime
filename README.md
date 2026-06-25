@@ -1,12 +1,14 @@
-# quiztime
+# QuizTime Backend
 
-This project was created using the [Ktor Project Generator](https://start.ktor.io).
+A REST API backend for a quiz application built with Ktor, MongoDB Atlas, and Kotlin.
 
-Here are some useful links to get you started:
- * [Ktor Documentation](https://ktor.io/docs/home.html)
- * [Ktor GitHub page](https://github.com/ktorio/ktor)
- * [Ktor Slack chat](https://app.slack.com/client/T09229ZC6/C0A974TJ9). [Request an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
+## Tech Stack
 
+- **Kotlin** with Ktor (Netty engine)
+- **MongoDB Atlas** (replica set, TLS)
+- **Koin** for dependency injection
+- **kotlinx.serialization** for JSON
+- **Logback** for logging
 
 ## Features
 Here's a list of features included in this project:
@@ -19,6 +21,34 @@ Here's a list of features included in this project:
 | [Request Validation](https://start.ktor.io/p/io.ktor/server-request-validation) | Adds validation for incoming requests |
 | [Content Negotiation](https://start.ktor.io/p/io.ktor/server-content-negotiation) | Provides automatic content conversion according to Content-Type and Accept headers |
 | [kotlinx.serialization](https://start.ktor.io/p/io.ktor/server-kotlinx-serialization) | Handles JSON serialization using kotlinx.serialization library |
+
+## API Endpoints
+
+### Quiz Questions `quiz/questions`
+
+| Method | Path | Description |
+|--------|------|-------------|
+| GET | `/quiz/questions` | Get all questions (optional `?topicCode=&limit=`) |
+| POST | `/quiz/questions` | Create or update a question |
+| GET | `/quiz/questions/{questionId}` | Get question by ID |
+| DELETE | `/quiz/questions/{questionId}` | Delete question by ID |
+
+### Quiz Topics `quiz/topics`
+
+| Method | Path | Description |
+|--------|------|-------------|
+| GET | `/quiz/topics` | Get all topics |
+| POST | `/quiz/topics` | Create or update a topic |
+| GET | `/quiz/topics/{topicId}` | Get topic by ID |
+| DELETE | `/quiz/topics/{topicId}` | Delete topic by ID |
+
+### Issue Reports `report/issues`
+
+| Method | Path | Description |
+|--------|------|-------------|
+| GET | `/report/issues` | Get all issue reports |
+| POST | `/report/issues` | Submit an issue report for a question |
+| DELETE | `/report/issues/{issueId}` | Delete an issue report by ID |
 
 
 ## Building & Running
