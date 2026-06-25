@@ -1,4 +1,4 @@
-package com.example.presentation.routes.issue_report
+package com.example.presentation.routes.path
 
 import io.ktor.resources.*
 

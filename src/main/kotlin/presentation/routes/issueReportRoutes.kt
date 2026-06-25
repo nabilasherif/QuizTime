@@ -1,9 +1,10 @@
-package com.example.presentation.routes.issue_report
+package com.example.presentation.routes
 
 import com.example.domain.model.IssueReport
 import com.example.domain.repository.IssueReportRepository
 import com.example.domain.util.onFailure
 import com.example.domain.util.onSuccess
+import com.example.presentation.routes.path.IssueReportRoutesPath
 import com.example.presentation.util.respondWithError
 import io.ktor.http.*
 import io.ktor.server.request.*

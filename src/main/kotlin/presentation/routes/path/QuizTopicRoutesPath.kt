@@ -1,4 +1,4 @@
-package com.example.presentation.routes.quiz_topic
+package com.example.presentation.routes.path
 
 import io.ktor.resources.*
 
